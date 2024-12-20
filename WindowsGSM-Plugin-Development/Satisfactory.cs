@@ -5,11 +5,11 @@ using Newtonsoft.Json.Linq;
 
 namespace WindowsGSM.Plugins
 {
-    public class Satisfactory : SteamCMDAgent
+    public class SatisfactoryDS : SteamCMDAgent
     {
         public Plugin Plugin = new Plugin
         {
-            name = "WindowsGSM.Satisfactory",
+            name = "WindowsGSM.SatisfactoryDS",
             author = "mhump711",
             description = "🧩 WindowsGSM plugin for supporting Satisfactory Dedicated Server",
             version = "1.0",
@@ -18,18 +18,17 @@ namespace WindowsGSM.Plugins
         };
 
 
-        public Satisfactory(ServerConfig serverData) : base(serverData) => base.serverData = _serverData = serverData;
+        public SatisfactoryDS(ServerConfig serverData) : base(serverData) => base.serverData = _serverData = serverData;
         private readonly ServerConfig _serverData;
 
         public override bool loginAnonymous => true; // true if allows login anonymous on steamcmd, else false
         public override string AppId => "1690800"; // Value of app_update <AppId> 
 
         public override string StartPath => "Engine\Binaries\Win64\FactoryServer-Win64-Shipping.exe"; // Game server start path
-        public string FullName = "Satisfactory Dedicated Server"; // Game server FullName
+        public string FullName = "Satisfactory DS"; // Game server FullName
         public bool AllowsEmbedConsole = true;  // Does this server support output redirect?
         public int PortIncrements = 1; // This tells WindowsGSM how many ports should skip after installation
         public object QueryMethod = null; // Query method. Accepted value: null or new A2S() or new FIVEM() or new UT3()
-
         public string Port = "7777"; // Default port
         public string Defaultmap = "empty"; // Default map name
         public string Maxplayers = "4"; // Default maxplayers
